@@ -1,23 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Exercise</title>
-</head>
-<body>
-  <div class="container">
-    <!-- AUDIO HTML GOES HERE -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Exercise</title>
 
-    <!-- VIDEO HTML GOES HERE -->
+    <style>
+      body {
+        background-image: url("assets/images/background.jpg");
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-color: green;
+        margin: 0;
+        padding: 20px;
+        font-family: sans-serif;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      canvas {
+        background-color: lightyellow;
+        display: block;
+        margin-top: 30px;
+      }
+      img {
+        display: block;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- AUDIO HTML GOES HERE -->
+      <h2>Audio</h2>
+      <audio src="assets/audio/piano.wav" controls muted loop></audio>
 
-    <!-- IMAGE MAP HTML GOES HERE-->
+      <!-- VIDEO HTML GOES HERE -->
+      <h2>Video</h2>
+      <video
+        src="assets/video/ocean.mp4"
+        controls
+        muted
+        loop
+        poster="assets/images/poster.jpg"
+        width="600"
+      ></video>
 
-    <!-- CANVAS HTML GOES HERE -->
-  </div>
+      <!-- IMAGE MAP HTML GOES HERE-->
+      <h2>Image Map</h2>
+      <img
+        src="assets/images/fruit_table.jpg"
+        usemap="#fruitmap"
+        width="600"
+        alt="Fruit Table Image"
+      />
 
-  <script>
-    /* CANVAS JAVASCRIPT GOES HERE */
-  </script>
-</body>
+      <map name="fruitmap">
+        <area
+          shape="rect"
+          coords="30,40,130,140"
+          href="https://en.wikipedia.org/wiki/Lavandula"
+          alt="Lavender"
+          target="_blank"
+        />
+
+        <area
+          shape="rect"
+          coords="200,100,300,200"
+          href="https://en.wikipedia.org/wiki/Orange_(fruit)"
+          alt="Orange"
+          target="_blank"
+        />
+
+        <area
+          shape="circle"
+          coords="450,150,40"
+          href="https://en.wikipedia.org/wiki/Coffee"
+          alt="Coffee"
+          target="_blank"
+        />
+      </map>
+
+      <!-- CANVAS HTML GOES HERE -->
+      <h2>Canvas</h2>
+      <canvas id="squareCanvas" width="500" height="500"></canvas>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("squareCanvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.strokeStyle = "red";
+      ctx.beginPath();
+      ctx.moveTo(50, 50);
+      ctx.lineTo(450, 50);
+      ctx.stroke();
+
+      ctx.strokeStyle = "blue";
+      ctx.beginPath();
+      ctx.moveTo(450, 50);
+      ctx.lineTo(450, 450);
+      ctx.stroke();
+
+      ctx.strokeStyle = "green";
+      ctx.beginPath();
+      ctx.moveTo(450, 450);
+      ctx.lineTo(50, 450);
+      ctx.stroke();
+
+      ctx.strokeStyle = "orange";
+      ctx.beginPath();
+      ctx.moveTo(50, 450);
+      ctx.lineTo(50, 50);
+      ctx.stroke();
+    </script>
+  </body>
 </html>
